@@ -108,10 +108,7 @@ Comments 테이블 :
 2. Post 테이블은 게시글 정보를 저장하는 테이블로 각 게시글마다 제목, 본문, 이미지(선택적), 작성자 ID(User 테이블의 외래 키), 작성 시간, 조회수, 좋아요 수, 댓글 수를 포함한다. 
 3. Comments 테이블은 댓글 정보를 저장하는 테이블로 각 댓글은 게시글 ID(Posts 테이블의 외래 키), 작성자 ID(User 테이블의 외래 키), 댓글 내용, 작성 시간 및 수정 시간을 포함한다. 
 
-## ERDCloud
-
-[링크](https://www.erdcloud.com/d/YDbkwZGjYCmWJWmm3)
-<iframe width="600" height="336" src="https://www.erdcloud.com/p/YDbkwZGjYCmWJWmm3" frameborder="0" allowfullscreen></iframe>
+## [ERDCloud](https://www.erdcloud.com/d/YDbkwZGjYCmWJWmm3)
 
 ## 디렉토리 구조
 ```
