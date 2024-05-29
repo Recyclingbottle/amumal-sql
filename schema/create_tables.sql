@@ -1,0 +1,36 @@
+-- 테이블 생성
+USE amumal_db;
+
+CREATE TABLE Users (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    profile_picture VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255),
+    nickname VARCHAR(50) UNIQUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Posts (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(26),
+    content LONGTEXT,
+    image VARCHAR(255),
+    user_id INT(11),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    view_count INT(11) DEFAULT 0,
+    like_count INT(11) DEFAULT 0,
+    comment_count INT(11) DEFAULT 0,
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Comments (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    post_id INT(11),
+    user_id INT(11),
+    content TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (post_id) REFERENCES Posts(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
+);
